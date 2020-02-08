@@ -29,15 +29,10 @@ if a && b
   else
     puts "Invalid operator."
   end
-elsif a.class && b.class == false
- puts "#{inp1} and #{inp2} are not numbers"
+elsif a.class || b.class == false
+  puts "One of your entries were invalid."
+  puts "you entered #{inp1} #{op} #{inp2}"
  exit
-elsif a.class == false
-  puts "#{inp1} is not a number"
-  exit
-elsif b.class == false
-  puts "#{inp2} is not a number"
-  exit
 else
   puts "I don't know how you could mess this up..."
 end
