@@ -5,33 +5,40 @@ puts "++==++==++==++==++==++==++=="
 puts "==++==++==++==++==++==++==++"
 
 puts "Enter a number!"
-inp1 = gets.chomp.to_i
+inp1 = gets.chomp!
+a = Integer(inp1) rescue nil
 
-#testing to see what the inp1 class is. 
-#puts inp1.class
-#puts inp1.integer?
 puts "Enter one of the follow operations: "
 puts " + - * /"
-op = gets.chomp
+op = gets.chomp!
 
 puts "Enter a number!"
-inp2 = gets.chomp.to_i
+inp2 = gets.chomp!
+b = Integer(inp2) rescue nil
+  puts a.to_s + op + b.to_s
 
-puts inp1.to_s + op.to_s + inp2.to_s
-
-if inp1.integer? && inp2.integer? == true  
+if a && b 
   if op == "+"
-    puts inp1+inp2
+    puts a+b
   elsif op == "-"
-    puts inp1-inp2
+    puts a-b
   elsif op == "/"
-    puts inp1/inp2
+    puts a/b
   elsif op == "*"
-    puts inp1*inp2
+    puts a*b
   else
     puts "Invalid operator."
   end
+elsif a.class && b.class == false
+ puts "#{inp1} and #{inp2} are not numbers"
+ exit
+elsif a.class == false
+  puts "#{inp1} is not a number"
+  exit
+elsif b.class == false
+  puts "#{inp2} is not a number"
+  exit
 else
-  puts "not a number"
+  puts "I don't know how you could mess this up..."
 end
 
